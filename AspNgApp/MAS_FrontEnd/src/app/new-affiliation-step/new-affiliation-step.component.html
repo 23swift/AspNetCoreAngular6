@@ -1,0 +1,144 @@
+<app-bdo-form-header [text]="title" [sub_text]="subTitle" [mode]="mode"></app-bdo-form-header>
+<span class="mat-headline">Please follow the steps:</span>
+<mat-vertical-stepper [linear]="true" #stepper>
+    <!-- <ng-template  [matStepperIcon]="'edit'">
+        <mat-icon>check</mat-icon>
+    </ng-template>
+    <ng-template  matStepperIcon="done">
+        <mat-icon>done_outline</mat-icon>
+    </ng-template> -->
+    <mat-step [completed]="false">
+
+        <ng-template matStepLabel>
+
+            <span class="mat-subheading-1">
+            
+                Create Customer Profile</span>
+
+        </ng-template>
+        <!-- <mat-step-header state="done">Complete</mat-step-header> -->
+        <span class="mat-headline">
+          Customer Profile
+        </span>
+        <app-new-affiliation></app-new-affiliation>
+        <label>Done? </label>
+        <button mat-mini-fab (click)="completed(stepper);">
+            <mat-icon color="primary">check</mat-icon>
+        </button>
+
+        <!-- <div fxLayout="row wrap" fxLayoutAlign="end center" fxLayoutGap="3px">
+            <button mat-mini-fab (click)="doneWithCustomer(stepper);">
+                <mat-icon>check</mat-icon>
+            </button>
+        </div> -->
+    </mat-step>
+    <mat-step [completed]="false">
+        <ng-template matStepLabel>
+            <span class="mat-subheading-1">
+                    
+                Add Branches</span>
+        </ng-template>
+
+        <!-- <app-branch-list></app-branch-list> -->
+        <router-outlet></router-outlet>
+        <label>Done? </label>
+        <button mat-mini-fab (click)="completed(stepper);">
+            <mat-icon color="primary">check</mat-icon>
+        </button>
+
+    </mat-step>
+    <mat-step [completed]="false">
+        <ng-template matStepLabel>
+            <span class="mat-subheading-1">
+                        
+                    Attach Occular Inspection Form to Branches</span>
+        </ng-template>
+
+        <!-- <app-branch-list></app-branch-list> -->
+        <mat-accordion class="mat-elevation-z0">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Aldo
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        This is a summary of the content
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <span class="mat-headline">
+                                                    Occular Inspection Form
+                                                  </span>
+                <app-ocular-inspection-form></app-ocular-inspection-form>
+            </mat-expansion-panel>
+
+
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Bench
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        This is a summary of the content
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+                <span class="mat-headline">
+                                                        Occular Inspection Form
+                                                      </span>
+                <app-ocular-inspection-form></app-ocular-inspection-form>
+            </mat-expansion-panel>
+        </mat-accordion>
+
+        <label>Done? </label>
+        <button mat-mini-fab (click)="completed(stepper);">
+            <mat-icon color="primary">check</mat-icon>
+        </button>
+
+    </mat-step>
+    <mat-step [completed]="false">
+        <ng-template matStepLabel>
+            <span class="mat-subheading-1">
+                            
+                        Create POS Request for Branches</span>
+        </ng-template>
+
+        <app-branch-list></app-branch-list>
+        <label>Done? </label>
+        <button mat-mini-fab (click)="completed(stepper);">
+            <mat-icon color="primary">check</mat-icon>
+        </button>
+
+    </mat-step>
+    <mat-step [completed]="false">
+        <ng-template matStepLabel>
+            <span class="mat-subheading-1">
+                            
+                        Attach Required Documents</span>
+        </ng-template>
+        <app-document-check-list></app-document-check-list>
+        <label>Done? </label>
+        <button mat-mini-fab (click)="completed(stepper);">
+            <mat-icon color="primary">check</mat-icon>
+        </button>
+
+    </mat-step>
+    <mat-step state="done">
+        <ng-template matStepLabel>
+
+            <span class="mat-subheading-1">Done!</span>
+
+        </ng-template>
+
+        <span class="mat-subheading-1">You are now done. Would you like to submit the Request?</span>
+        <div xLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="3px">
+            <button mat-stroked-button matStepperPrevious color="primary">Yes</button>
+            <a mat-stroked-button routerLink="/home" color="accent">No</a>
+
+        </div>
+    </mat-step>
+
+
+    <!-- Stepper steps go here -->
+    <!-- <mat-step label="step 1">step 1 content</mat-step>
+    <mat-step label="step 2">step 2 content</mat-stngep>
+    <mat-step label="step 3">step 3 content</mat-step> -->
+</mat-vertical-stepper>
